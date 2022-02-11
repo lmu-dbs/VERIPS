@@ -2,7 +2,7 @@
 This is the code repository for the paper VERIPS
 
 # Disclaimer
-This code was built by modifying [Jordan Ash's and Chicheng Zhang's Batch Active learning by Diverse Gradient Embeddings (BADGE) repository](https://github.com/JordanAsh/badge) which built upon [Kuan-Hao Huang's deep active learning repository](https://github.com/ej0cl6/deep-active-learning). The VGG section was supplemnted with code based on [Andreas Kirsch's and Joost van Amersfoort's Batch Bald](https://github.com/BlackHC/BatchBALD) repository.
+This code was built by modifying [Jordan Ash's and Chicheng Zhang's Batch Active learning by Diverse Gradient Embeddings (BADGE) repository](https://github.com/JordanAsh/badge) which built upon [Kuan-Hao Huang's deep active learning repository](https://github.com/ej0cl6/deep-active-learning). The VGG section was supplemented with code based on [Andreas Kirsch's and Joost van Amersfoort's Batch Bald](https://github.com/BlackHC/BatchBALD) repository.
 
 # Usage
 Due to the significant amount of parameters, the VERIPS code has been restricted to running set experiments with restricted user input on the parameters.
