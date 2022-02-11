@@ -846,7 +846,7 @@ if __name__ == '__main__':
 
     task = opts.copy()
 
-    if (taskds == "CIFAR10s"):
+    if (taskds == "CIFAR10"):
         task.update({'data': 'CIFAR10', 'lr': 0.001, 'epochnum': 100, 'nStart': 100, 'nQuery': 1000, 'nEnd': 10100})
     elif (taskds == "SVHN"):
         task.update({'data': 'SVHN', 'lr': 0.001, 'epochnum': 200, 'nStart': 100, 'nQuery': 1000, 'nEnd': 5100})
@@ -893,8 +893,8 @@ if __name__ == '__main__':
 
     print(task)
 
-    os.makedirs("experiment_logs", exist_ok=True)
-    log_str = "experiment_logs/" + "Results_" + str(task['data']) + "_" + str(task['nStart'])
+    os.makedirs("logs", exist_ok=True)
+    log_str = "logs/" + "Results_" + str(task['data']) + "_" + str(task['nStart'])
     log_str += "_q" + str(task['nQuery']) + "_p" + str(task['nPseudo']) + "_" + str(task['alg'])
     log_str += "_" + str(task['plmethod'])
     log_str += "_" + "f" + str(task['filtertype'])  + str(task['filter']) + "s" + str(task['start']) + "sp" + str(task['startparam'])
