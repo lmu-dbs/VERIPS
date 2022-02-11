@@ -697,33 +697,6 @@ class Strategy:
         print(len(idxs_test))
         return sorted(x.items())
 
-# logging of pseudo-label avlues to file
-    def logToFile(self, path):
-        logfile = open(path, "w")
-        logfile.write(self.store.to_string())
-        logfile.close()
-
-
-    def logPredictions(self):
-        id = np.empty(len(self.X))
-        id[:] = 1
-        if type(self.X) is np.ndarray:
-            loader_te = DataLoader(self.handler(self.X, self.Y, id, transform=self.args['transformTest']),
-                                   shuffle=False, **self.args['loader_te_args'])
-        else:
-            loader_te = DataLoader(self.handler(self.X.numpy(), self.Y, id, transform=self.args['transformTest']),
-                                   shuffle=False, **self.args['loader_te_args'])
-
-        self.clf.eval()
-        P = torch.zeros(len(self.Y)).long()
-        with torch.no_grad():
-            for x, y, id, idxs in loader_te:
-                x, y = Variable(x.cuda()), Variable(y.cuda())
-                out, e1 = self.clf(x)
-                pred = out.max(1)[1]
-                P[idxs] = pred.data.cpu()
-        self.store['prediction'] = P
-
     def updatefilter(self,newfilter):
         self.filter_factor = newfilter
 

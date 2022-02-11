@@ -25,7 +25,7 @@ class BALDDropout(Strategy):
 		entropy1 = (-pb*torch.log(pb)).sum(1)
 		entropy2 = (-probs*torch.log(probs)).sum(2).mean(0)
 		U = entropy2 - entropy1
-		print(U.sort()[0][:n])
+		#print(U.sort()[0][:n])
 		return idxs_unlabeled[U.sort()[1][:n]]
 
 
@@ -322,26 +322,7 @@ class BALDDropoutPL3(BALDDropoutConsistencyPL):
 
 		return inds
 
-# BALD with random pseudo-labels
-class BALDDropoutBALD(BALDDropoutConsistencyPL):
-	def __init__(self, X, Y, idxs_lb, net, handler, args, filter_factor, filtertype, n_drop=10):
-		super(BALDDropoutBALD, self).__init__(X, Y, idxs_lb, net, handler, args, filter_factor, filtertype, n_drop)
-		self.idxs_pl = np.zeros(self.n_pool, dtype=bool)
-		self.y_pl = np.zeros(self.n_pool)
-
-	def choosePLCandidates(self, n, idxs_unlabeled):
-		X = self.X[idxs_unlabeled]
-		Y = torch.Tensor(self.Y.numpy()[idxs_unlabeled]).long()
-
-		probs = self.predict_prob_dropout_split(X, Y, self.n_drop)
-		pb = probs.mean(0)
-		entropy1 = (-pb*torch.log(pb)).sum(1)
-		entropy2 = (-probs*torch.log(probs)).sum(2).mean(0)
-		U = entropy2 - entropy1
-		almin = np.argpartition(U, n)[:n]
-
-		return almin
-
+# BALD with BALD-based pseudo-labels
 class BALDDropoutBALDInv(BALDDropoutConsistencyPL):
 	def __init__(self, X, Y, idxs_lb, net, handler, args, filter_factor, filtertype, n_drop=10):
 		super(BALDDropoutBALDInv, self).__init__(X, Y, idxs_lb, net, handler, args, filter_factor, filtertype, n_drop)
@@ -357,7 +338,10 @@ class BALDDropoutBALDInv(BALDDropoutConsistencyPL):
 		else:
 			idxs = np.arange(self.n_pool)[idxs_unlabeled]
 			self.store['type'][idxs] = 'plcand'
-			chosen = self.choosePL2(idxs_unlabeled)
+			if(self.filtertype == 'bald'):
+				chosen = self.choosePL2(idxs_unlabeled)
+			else:
+				chosen = self.choosePL(idxs_unlabeled)
 			idxs2 = np.arange(self.n_pool)[idxs_unlabeled[chosen]]
 			self.store['type'][idxs2] = 'plchosen'
 
@@ -374,7 +358,7 @@ class BALDDropoutBALDInv(BALDDropoutConsistencyPL):
 		U = entropy2 - entropy1
 
 		almax = np.argpartition(U, -n)[-n:]
-		print(U[almax])
+		#print(U[almax])
 
 		return almax
 

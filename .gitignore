@@ -1,4 +1,5 @@
 data
+experiment_logs
 
 # AWS User-specific
 .idea/**/aws.xml
