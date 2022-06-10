@@ -17,6 +17,7 @@ The code is run with:
   - `badge`: BADGE [2] with BADGE-based pseudo-labels, threshold=0.0025, decay=3.3e-05
   - `entropy`: Entropy-based Active Learning [3] with Entropy-based pseudo-labels, threshold=0.05, decay=0.0033
   - `margin`: Margin-based Active Learning [3] with Margin-based pseudo-labels, threshold=0.05, decay=0
+  - `rand`: random sampling, only supports Tasktype base
 
 - Poorly Initialized Models:  
   - `entropyeq50`: Entropy-based Active Learning with Entropy-based pseudo-labels starting with 50 datapoints that are equally dsitributed across classes, threshold=0.05, decay=0.0033
@@ -24,11 +25,16 @@ The code is run with:
   - `entropyimb`: Entropy-based Active Learning with Entropy-based pseudo-labels starting with a starting set where 5 of the classes did not receive any samples, threshold=0.05, decay=0.0033
 
 - Sensitivity of Decay/Threshold:  
+  - `entropy0.2`: Entropy-based Active Learning with Entropy-based pseudo-labels, threshold=0.2, decay=0.0033
   - `entropy0.1`: Entropy-based Active Learning with Entropy-based pseudo-labels, threshold=0.1, decay=0.0033
   - `entropy0.06`: Entropy-based Active Learning with Entropy-based pseudo-labels, threshold=0.06, decay=0.0033
   - `entropy0.04`: Entropy-based Active Learning with Entropy-based pseudo-labels, threshold=0.04, decay=0.0033
+  - `entropy0.02`: Entropy-based Active Learning with Entropy-based pseudo-labels, threshold=0.02, decay=0.0016
+  - `entropy0.01`: Entropy-based Active Learning with Entropy-based pseudo-labels, threshold=0.01, decay=0.0008
+  - `entropydc0.0049`: Entropy-based Active Learning with Entropy-based pseudo-labels, threshold=0.05, decay=0.0049
   - `entropydc0.004`: Entropy-based Active Learning with Entropy-based pseudo-labels, threshold=0.05, decay=0.004
   - `entropydc0.002`: Entropy-based Active Learning with Entropy-based pseudo-labels, threshold=0.05, decay=0.002
+  - `entropydc0.001`: Entropy-based Active Learning with Entropy-based pseudo-labels, threshold=0.05, decay=0.001
   - `entropydc0`: Entropy-based Active Learning with Entropy-based pseudo-labels, threshold=0.05, decay=0
  
 {TaskType}: Experiment Type
