@@ -884,12 +884,24 @@ if __name__ == '__main__':
         task.update({'alg': 'entropy', 'plmethod': 'entropy', 'filtertype': 'entropy', 'filter': 0.06, 'filterdecay': 0.0033})
     elif (taskid == "entropy0.04"):
         task.update({'alg': 'entropy', 'plmethod': 'entropy', 'filtertype': 'entropy', 'filter': 0.04, 'filterdecay': 0.0033})
+    elif (taskid == "entropy0.2"):
+        task.update({'alg': 'entropy', 'plmethod': 'entropy', 'filtertype': 'entropy', 'filter': 0.2, 'filterdecay': 0.0033})
+    elif (taskid == "entropy0.02"):
+        task.update({'alg': 'entropy', 'plmethod': 'entropy', 'filtertype': 'entropy', 'filter': 0.02, 'filterdecay': 0.0016})
+    elif (taskid == "entropy0.01"):
+        task.update({'alg': 'entropy', 'plmethod': 'entropy', 'filtertype': 'entropy', 'filter': 0.01, 'filterdecay': 0.0008})
+    elif (taskid == "entropydc0.0049"):
+        task.update({'alg': 'entropy', 'plmethod': 'entropy', 'filtertype': 'entropy', 'filter': 0.05, 'filterdecay': 0.0049})
     elif (taskid == "entropydc0.004"):
         task.update({'alg': 'entropy', 'plmethod': 'entropy', 'filtertype': 'entropy', 'filter': 0.05, 'filterdecay': 0.004})
     elif (taskid == "entropydc0.002"):
         task.update({'alg': 'entropy', 'plmethod': 'entropy', 'filtertype': 'entropy', 'filter': 0.05, 'filterdecay': 0.002})
+    elif (taskid == "entropydc0.001"):
+        task.update({'alg': 'entropy', 'plmethod': 'entropy', 'filtertype': 'entropy', 'filter': 0.05, 'filterdecay': 0.001})
     elif (taskid == "entropydc0"):
         task.update({'alg': 'entropy', 'plmethod': 'entropy', 'filtertype': 'entropy', 'filter': 0.05, 'filterdecay': 0})
+    elif(taskid == "rand"):
+        task.update({'alg': 'randsamp'})
 
     print(task)
 
