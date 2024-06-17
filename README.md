@@ -54,8 +54,32 @@ The code is run with:
 Each experiment produces a log file which tracks its parameters in the file name and is put into a logs folder (that is created automatically if it does not exist).  
 Please also note that there are a lot of outputs that refer to specific metrics as well as some remaining debug outputs. 
 
+# Requirements
+
+Make sure you install all requirements using:
+```
+pip install -U pip setuptools wheel
+pip install torch==1.8.0+cu111 torchvision==0.9.0+cu111 -f https://download.pytorch.org/whl/torch_stable.html
+pip install -r requirements.txt
+```
+
 # References
 [1] Gal, Yarin, Riashat Islam, and Zoubin Ghahramani. "Deep bayesian active learning with image data." (2017).  
 [2] Ash, Jordan T., et al. "Deep batch active learning by diverse, uncertain gradient lower bounds." (2019).   
 [3] Settles, Burr. "Active learning literature survey." (2009).  
 [4] Wang, Keze, et al. "Cost-effective active learning for deep image classification." (2016).  
+
+Please cite us:
+```
+@inproceedings{gilhuber2022verips,
+  author       = {Sandra Gilhuber and
+                  Philipp Jahn and
+                  Yunpu Ma and
+                  Thomas Seidl},
+  title        = {{VERIPS:} Verified Pseudo-label Selection for Deep Active Learning},
+  booktitle    = {{ICDM}},
+  pages        = {951--956},
+  publisher    = {{IEEE}},
+  year         = {2022}
+}
+```
