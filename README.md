@@ -69,7 +69,8 @@ pip install -r requirements.txt
 [3] Settles, Burr. "Active learning literature survey." (2009).  
 [4] Wang, Keze, et al. "Cost-effective active learning for deep image classification." (2016).  
 
-Please cite us:
+# Citing
+If you use our code in your research or applications, please consider citing our paper.:
 ```
 @inproceedings{gilhuber2022verips,
   author       = {Sandra Gilhuber and
